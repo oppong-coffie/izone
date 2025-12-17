@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-      <HeroSection />
+      {/* <HeroSection /> */}
       {/* <FeaturesSection /> */}
       <CategoryGrid />
       {/* <FeaturedProducts /> */}

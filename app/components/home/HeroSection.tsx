@@ -3,13 +3,20 @@ import Link from "next/link";
 import { ArrowRight, Sparkles, Zap, Shield } from "lucide-react";
 
 const HeroSection: React.FC = () => {
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => setMounted(true), []);
+
+  if (!mounted) {
+    return <div className="min-h-[70vh] bg-[#0A0A0A]" />;
+  }
+
   return (
     <section className="relative min-h-[600px] bg-gradient-to-br from-[#0A0A0A] via-[#171717] to-[#0A0A0A] overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-[#E8FF00]/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#E8FF00]/5 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#E8FF00]/5 rounded-full blur-3xl" />
+        <div className="absolute top-20 left-10 w-72 h-72 bg-[#32CD32]/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#32CD32]/5 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#32CD32]/5 rounded-full blur-3xl" />
       </div>
 
       {/* Grid Pattern Overlay */}
@@ -27,9 +34,9 @@ const HeroSection: React.FC = () => {
           {/* Left Content */}
           <div className="flex-1 text-center lg:text-left">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#E8FF00]/10 border border-[#E8FF00]/20 rounded-full mb-6">
-              <Sparkles className="w-4 h-4 text-[#E8FF00]" />
-              <span className="text-[#E8FF00] text-sm font-medium">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#32CD32]/10 border border-[#32CD32]/20 rounded-full mb-6">
+              <Sparkles className="w-4 h-4 text-[#32CD32]" />
+              <span className="text-[#32CD32] text-sm font-medium">
                 New Arrivals Available
               </span>
             </div>
@@ -38,7 +45,7 @@ const HeroSection: React.FC = () => {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
               Shop Smart,
               <br />
-              <span className="text-[#E8FF00]">Save More</span>
+              <span className="text-[#32CD32]">Save More</span>
               <br />
               Study Better
             </h1>
@@ -54,14 +61,14 @@ const HeroSection: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Link
                 href="/products"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#E8FF00] text-[#0A0A0A] font-semibold rounded-full hover:bg-[#F5FF80] hover:shadow-[0_0_30px_rgba(232,255,0,0.4)] transition-all duration-300 group"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#32CD32] text-[#0A0A0A] font-semibold rounded-full hover:bg-[#F5FF80] hover:shadow-[0_0_30px_rgba(50,205,50,0.4)] transition-all duration-300 group"
               >
                 Shop Now
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 href="/deals"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border-2 border-[#E8FF00] text-[#E8FF00] font-semibold rounded-full hover:bg-[#E8FF00] hover:text-[#0A0A0A] transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border-2 border-[#32CD32] text-[#32CD32] font-semibold rounded-full hover:bg-[#32CD32] hover:text-[#0A0A0A] transition-all duration-300"
               >
                 View Deals 🔥
               </Link>
@@ -70,15 +77,15 @@ const HeroSection: React.FC = () => {
             {/* Trust Badges */}
             <div className="flex flex-wrap items-center gap-6 mt-10 justify-center lg:justify-start">
               <div className="flex items-center gap-2 text-gray-400">
-                <Zap className="w-5 h-5 text-[#E8FF00]" />
+                <Zap className="w-5 h-5 text-[#32CD32]" />
                 <span className="text-sm">Fast Delivery</span>
               </div>
               <div className="flex items-center gap-2 text-gray-400">
-                <Shield className="w-5 h-5 text-[#E8FF00]" />
+                <Shield className="w-5 h-5 text-[#32CD32]" />
                 <span className="text-sm">Secure Payments</span>
               </div>
               <div className="flex items-center gap-2 text-gray-400">
-                <span className="text-[#E8FF00] font-bold">24/7</span>
+                <span className="text-[#32CD32] font-bold">24/7</span>
                 <span className="text-sm">Support</span>
               </div>
             </div>
@@ -88,7 +95,7 @@ const HeroSection: React.FC = () => {
           <div className="flex-1 relative">
             <div className="relative max-w-md mx-auto">
               {/* Floating Cards */}
-              <div className="absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-br from-[#E8FF00] to-[#C4D900] rounded-2xl shadow-2xl flex items-center justify-center animate-bounce z-10">
+              <div className="absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-br from-[#32CD32] to-[#F5FF80] rounded-2xl shadow-2xl flex items-center justify-center animate-bounce z-10">
                 <div className="text-center">
                   <p className="text-[#0A0A0A] font-bold text-xl">50%</p>
                   <p className="text-[#0A0A0A] text-xs font-medium">OFF</p>
@@ -108,7 +115,7 @@ const HeroSection: React.FC = () => {
 
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
-                    <span className="px-2 py-1 bg-[#E8FF00]/10 text-[#E8FF00] text-xs font-medium rounded">
+                    <span className="px-2 py-1 bg-[#32CD32]/10 text-[#32CD32] text-xs font-medium rounded">
                       BESTSELLER
                     </span>
                     <span className="px-2 py-1 bg-red-500/10 text-red-400 text-xs font-medium rounded">
@@ -119,14 +126,14 @@ const HeroSection: React.FC = () => {
                     Student Laptop Pro
                   </h3>
                   <div className="flex items-center gap-3">
-                    <span className="text-[#E8FF00] font-bold text-2xl">
+                    <span className="text-[#32CD32] font-bold text-2xl">
                       GH₵ 2,499
                     </span>
                     <span className="text-gray-500 line-through text-sm">
                       GH₵ 4,999
                     </span>
                   </div>
-                  <button className="w-full py-3 bg-[#E8FF00] text-[#0A0A0A] font-semibold rounded-xl hover:bg-[#F5FF80] transition-colors">
+                  <button className="w-full py-3 bg-[#32CD32] text-[#0A0A0A] font-semibold rounded-xl hover:bg-[#F5FF80] transition-colors">
                     Add to Cart
                   </button>
                 </div>

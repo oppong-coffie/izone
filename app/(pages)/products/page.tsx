@@ -419,7 +419,7 @@ export default function ProductsContent() {
                 >
                   {/* Image */}
                   <Link
-                    href={`/products/${product.slug}`}
+                    href={`/products/${product.id}`}
                     className={`relative block ${
                       viewMode === "list" ? "w-40 shrink-0" : ""
                     }`}
