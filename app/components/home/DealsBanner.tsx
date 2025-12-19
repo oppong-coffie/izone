@@ -1,4 +1,6 @@
 // Deals Banner component
+import Link from "next/link";
+
 function DealsBanner() {
   return (
     <section className="py-16 bg-gradient-to-r from-[#0A0A0A] via-gray-900 to-[#0A0A0A] relative overflow-hidden">
@@ -68,3 +70,5 @@ function DealsBanner() {
     </section>
   );
 }
+
+export default DealsBanner;
