@@ -1,9 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Star, ShoppingCart, Heart, Eye } from "lucide-react";
-import { useCart } from "@/contexts/CartContext";
+import { Star, ShoppingCart, Heart, Eye, Check } from "lucide-react";
 
 interface Product {
   id: string;
@@ -17,6 +16,15 @@ interface Product {
   category: string;
   isNew?: boolean;
   isSale?: boolean;
+}
+
+interface CartItem {
+  productId: string;
+  name: string;
+  price: number;
+  image: string;
+  quantity: number;
+  isDigital: boolean;
 }
 
 // Demo products - in production, these would come from API
@@ -116,14 +124,20 @@ const featuredProducts: Product[] = [
 
 interface ProductCardProps {
   product: Product;
+  onAddToCart: (item: CartItem) => void;
+  isInCart: boolean;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  const { addItem } = useCart();
+const ProductCard: React.FC<ProductCardProps> = ({
+  product,
+  onAddToCart,
+  isInCart,
+}) => {
+  const [justAdded, setJustAdded] = useState(false);
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
-    addItem({
+    onAddToCart({
       productId: product.id,
       name: product.name,
       price: product.price,
@@ -131,6 +145,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       quantity: 1,
       isDigital: product.category === "Digital",
     });
+    setJustAdded(true);
+    setTimeout(() => setJustAdded(false), 2000);
   };
 
   const discountPercentage = product.compareAtPrice
@@ -145,7 +161,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       {/* Badges */}
       <div className="absolute top-3 left-3 z-10 flex flex-col gap-2">
         {product.isNew && (
-          <span className="px-2.5 py-1 bg-[#E8FF00] text-[#0A0A0A] text-xs font-bold rounded-full">
+          <span className="px-2.5 py-1 bg-[#32CD32] text-[#0A0A0A] text-xs font-bold rounded-full">
             NEW
           </span>
         )}
@@ -158,19 +174,19 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
       {/* Quick Actions */}
       <div className="absolute top-3 right-3 z-10 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all">
-        <button className="w-9 h-9 bg-white dark:bg-gray-700 rounded-full flex items-center justify-center shadow-md hover:bg-[#E8FF00] hover:text-[#0A0A0A] transition-colors">
+        <button className="w-9 h-9 bg-white dark:bg-gray-700 rounded-full flex items-center justify-center shadow-md hover:bg-[#32CD32] hover:text-[#0A0A0A] transition-colors">
           <Heart className="w-4 h-4" />
         </button>
         <Link
-          href={`/products/${product.slug}`}
-          className="w-9 h-9 bg-white dark:bg-gray-700 rounded-full flex items-center justify-center shadow-md hover:bg-[#E8FF00] hover:text-[#0A0A0A] transition-colors"
+          href={`/products/${product.id}`}
+          className="w-9 h-9 bg-white dark:bg-gray-700 rounded-full flex items-center justify-center shadow-md hover:bg-[#32CD32] hover:text-[#0A0A0A] transition-colors"
         >
           <Eye className="w-4 h-4" />
         </Link>
       </div>
 
       {/* Image */}
-      <Link href={`/products/${product.slug}`}>
+      <Link href={`/products/${product.id}`}>
         <div className="aspect-square bg-gray-100 dark:bg-gray-700 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
           <span className="text-6xl">{product.image}</span>
         </div>
@@ -184,8 +200,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </p>
 
         {/* Name */}
-        <Link href={`/products/${product.slug}`}>
-          <h3 className="font-semibold text-gray-900 dark:text-white mb-2 line-clamp-2 hover:text-[#E8FF00] transition-colors">
+        <Link href={`/products/${product.id}`}>
+          <h3 className="font-semibold text-gray-900 dark:text-white mb-2 line-clamp-2 hover:text-[#32CD32] transition-colors">
             {product.name}
           </h3>
         </Link>
@@ -198,7 +214,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                 key={i}
                 className={`w-4 h-4 ${
                   i < Math.floor(product.rating)
-                    ? "text-[#E8FF00] fill-current"
+                    ? "text-[#32CD32] fill-current"
                     : "text-gray-300 dark:text-gray-600"
                 }`}
               />
@@ -226,10 +242,24 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         {/* Add to Cart Button */}
         <button
           onClick={handleAddToCart}
-          className="w-full mt-4 py-2.5 bg-[#0A0A0A] dark:bg-[#E8FF00] text-white dark:text-[#0A0A0A] font-medium rounded-xl flex items-center justify-center gap-2 hover:bg-[#E8FF00] hover:text-[#0A0A0A] dark:hover:bg-[#F5FF80] opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all"
+          disabled={justAdded}
+          className={`w-full mt-4 py-2.5 font-medium rounded-xl flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all ${
+            justAdded
+              ? "bg-green-500 text-white"
+              : "bg-[#0A0A0A] dark:bg-[#32CD32] text-white dark:text-[#0A0A0A] hover:bg-[#32CD32] hover:text-[#0A0A0A] dark:hover:bg-[#3DE03D]"
+          }`}
         >
-          <ShoppingCart className="w-4 h-4" />
-          Add to Cart
+          {justAdded ? (
+            <>
+              <Check className="w-4 h-4" />
+              Added!
+            </>
+          ) : (
+            <>
+              <ShoppingCart className="w-4 h-4" />
+              {isInCart ? "Add More" : "Add to Cart"}
+            </>
+          )}
         </button>
       </div>
     </div>
@@ -237,12 +267,53 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 };
 
 const FeaturedProducts: React.FC = () => {
+  const [cart, setCart] = useState<CartItem[]>([]);
+
+  // Load cart from localStorage on mount
+  useEffect(() => {
+    const savedCart = localStorage.getItem("cart");
+    if (savedCart) {
+      try {
+        setCart(JSON.parse(savedCart));
+      } catch (e) {
+        console.error("Error loading cart:", e);
+      }
+    }
+  }, []);
+
+  // Save cart to localStorage whenever it changes
+  useEffect(() => {
+    if (cart.length > 0) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  }, [cart]);
+
+  const handleAddToCart = (item: CartItem) => {
+    setCart((prevCart) => {
+      const existingItem = prevCart.find((i) => i.productId === item.productId);
+      if (existingItem) {
+        // Update quantity
+        return prevCart.map((i) =>
+          i.productId === item.productId
+            ? { ...i, quantity: i.quantity + 1 }
+            : i
+        );
+      }
+      // Add new item
+      return [...prevCart, item];
+    });
+  };
+
+  const isInCart = (productId: string) => {
+    return cart.some((item) => item.productId === productId);
+  };
+
   return (
     <section className="py-16 bg-white dark:bg-[#0A0A0A]">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <span className="inline-block px-4 py-1.5 bg-[#E8FF00]/10 text-[#E8FF00] text-sm font-medium rounded-full mb-4">
+          <span className="inline-block px-4 py-1.5 bg-[#32CD32]/10 text-[#32CD32] text-sm font-medium rounded-full mb-4">
             ⭐ Top Picks for You
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -257,7 +328,12 @@ const FeaturedProducts: React.FC = () => {
         {/* Products Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {featuredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard
+              key={product.id}
+              product={product}
+              onAddToCart={handleAddToCart}
+              isInCart={isInCart(product.id)}
+            />
           ))}
         </div>
 
@@ -265,7 +341,7 @@ const FeaturedProducts: React.FC = () => {
         <div className="text-center mt-12">
           <Link
             href="/products"
-            className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-[#0A0A0A] dark:bg-[#E8FF00] text-white dark:text-[#0A0A0A] font-semibold rounded-full hover:bg-[#E8FF00] hover:text-[#0A0A0A] dark:hover:bg-[#F5FF80] transition-all"
+            className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-[#0A0A0A] dark:bg-[#32CD32] text-white dark:text-[#0A0A0A] font-semibold rounded-full hover:bg-[#32CD32] hover:text-[#0A0A0A] dark:hover:bg-[#3DE03D] transition-all"
           >
             View All Products
           </Link>
