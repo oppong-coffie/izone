@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   Loader2,
   ArrowRight,
@@ -10,17 +11,60 @@ import {
   Eye,
   EyeOff,
   Sparkles,
+  CheckCircle,
 } from "lucide-react";
 
 const LoginPage = () => {
+  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError("");
+
+    // Validate inputs
+    if (!email || !password) {
+      setError("Please fill in all fields");
+      return;
+    }
+
     setIsLoading(true);
-    // TODO: Add authentication logic here
-    setTimeout(() => setIsLoading(false), 1500);
+
+    try {
+      const res = await fetch("/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Login failed");
+      }
+
+      console.log("✅ Login successful:", data);
+
+      // Show success animation
+      setShowSuccess(true);
+
+      // Store user data in localStorage (or you can use cookies/session)
+      localStorage.setItem("user", JSON.stringify(data.user));
+
+      // Redirect to home after animation
+      setTimeout(() => {
+        router.push("/home");
+      }, 2000);
+    } catch (err: any) {
+      console.error("❌ Login error:", err);
+      setError(err.message || "Login failed. Please try again.");
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -52,9 +96,9 @@ const LoginPage = () => {
 
           {/* Headline */}
           <h1 className="text-5xl font-extrabold leading-tight mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-            Power Your <br />
+            Welcome Back <br />
             <span className="bg-gradient-to-r from-[#32CD32] to-[#32CD32] bg-clip-text text-transparent">
-              Digital Lifestyle
+              To iZone
             </span>
           </h1>
 
@@ -81,7 +125,7 @@ const LoginPage = () => {
 
         {/* Footer */}
         <div className="relative z-10 text-sm text-gray-500">
-          © {new Date().getFullYear()} iZone Digistore. All rights reserved.
+          © 2025 iZone Digistore. All rights reserved.
         </div>
       </div>
 
@@ -116,6 +160,8 @@ const LoginPage = () => {
                       type="email"
                       placeholder="you@example.com"
                       required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       className="w-full pl-12 pr-4 py-2 bg-black/50 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-[#32CD32] focus:ring-2 focus:ring-[#32CD32]/20 transition-all"
                     />
                   </div>
@@ -132,6 +178,8 @@ const LoginPage = () => {
                       type={showPassword ? "text" : "password"}
                       placeholder="••••••••"
                       required
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                       className="w-full pl-12 pr-12 py-2 bg-black/50 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-[#32CD32] focus:ring-2 focus:ring-[#32CD32]/20 transition-all"
                     />
                     <button
@@ -147,6 +195,13 @@ const LoginPage = () => {
                     </button>
                   </div>
                 </div>
+
+                {/* Error Display */}
+                {error && (
+                  <p className="text-red-500 text-sm text-center animate-pulse">
+                    {error}
+                  </p>
+                )}
 
                 {/* Submit Button */}
                 <button
@@ -180,13 +235,80 @@ const LoginPage = () => {
               {/* Register Link */}
               <Link
                 href="/register"
-                className="text-[#32CD32] font-semibold hover:text-[#32CD32]/10 transition-all duration-300"
+                className="block text-center text-[#32CD32] font-semibold hover:text-[#32CD32]/80 transition-all duration-300"
               >
                 Create an account
               </Link>
             </div>
           </div>
+
+          {/* Trust Badge */}
+          <p className="text-center text-gray-500 text-sm mt-6">
+            🔒 Your data is secure and encrypted
+          </p>
         </div>
+
+        {/* Success Modal */}
+        {showSuccess && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm z-50">
+            <div className="bg-[#1A1A1A] p-8 rounded-2xl w-80 text-center border border-[#32CD32]/30 relative overflow-hidden">
+              {/* Animated particles */}
+              <div className="absolute inset-0 overflow-hidden">
+                {[...Array(12)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="absolute w-2 h-2 rounded-full animate-ping"
+                    style={{
+                      backgroundColor: i % 2 === 0 ? "#32CD32" : "#E8FF00",
+                      left: `${10 + i * 7}%`,
+                      top: `${20 + (i % 3) * 20}%`,
+                      animationDelay: `${i * 0.1}s`,
+                      animationDuration: "1s",
+                    }}
+                  />
+                ))}
+              </div>
+
+              {/* Success checkmark with ring animation */}
+              <div className="relative mx-auto w-24 h-24 mb-6">
+                <div className="absolute inset-0 rounded-full bg-[#32CD32]/20 animate-ping" />
+                <div className="absolute inset-2 rounded-full bg-[#32CD32]/30 animate-pulse" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <CheckCircle
+                    className="w-16 h-16 text-[#32CD32] animate-bounce"
+                    style={{ animationDuration: "0.6s" }}
+                  />
+                </div>
+              </div>
+
+              <h2 className="text-2xl font-bold text-white mb-2 animate-pulse">
+                👋 Welcome Back!
+              </h2>
+              <p className="text-gray-400 mb-4">Login successful</p>
+              <p className="text-sm text-[#32CD32]">Redirecting to home...</p>
+
+              {/* Loading bar animation */}
+              <div className="mt-4 h-1 bg-gray-700 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-gradient-to-r from-[#32CD32] to-[#E8FF00] rounded-full"
+                  style={{
+                    animation: "loadingBar 2s ease-out forwards",
+                  }}
+                />
+              </div>
+              <style jsx>{`
+                @keyframes loadingBar {
+                  from {
+                    width: 0%;
+                  }
+                  to {
+                    width: 100%;
+                  }
+                }
+              `}</style>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
