@@ -67,18 +67,11 @@ const Page = () => {
     setVerificationPin(pin);
 
     try {
-      // Send verification email via API
+      // Send verification email and SMS via API
       const res = await fetch("/api/send-verification", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, name: fullName, pin }),
-      });
-
-      // Send   verification via SMS
-      const smsRes = await fetch("/api/send-sms", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ phone, pin }),
+        body: JSON.stringify({ email, name: fullName, pin, phone }),
       });
 
       const data = await res.json();
@@ -423,22 +416,10 @@ const Page = () => {
                           {/* Loading bar animation */}
                           <div className="mt-4 h-1 bg-gray-700 rounded-full overflow-hidden">
                             <div
-                              className="h-full bg-gradient-to-r from-[#32CD32] to-[#E8FF00] rounded-full"
-                              style={{
-                                animation: "loadingBar 2.5s ease-out forwards",
-                              }}
+                              className="h-full bg-gradient-to-r from-[#32CD32] to-[#E8FF00] rounded-full animate-[loadingBar_2.5s_ease-out_forwards]"
+                              style={{ width: "100%" }}
                             />
                           </div>
-                          <style jsx>{`
-                            @keyframes loadingBar {
-                              from {
-                                width: 0%;
-                              }
-                              to {
-                                width: 100%;
-                              }
-                            }
-                          `}</style>
                         </div>
                       ) : (
                         /* Verification Input */

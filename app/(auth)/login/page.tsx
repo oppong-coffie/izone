@@ -290,22 +290,10 @@ const LoginPage = () => {
               {/* Loading bar animation */}
               <div className="mt-4 h-1 bg-gray-700 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-[#32CD32] to-[#E8FF00] rounded-full"
-                  style={{
-                    animation: "loadingBar 2s ease-out forwards",
-                  }}
+                  className="h-full bg-gradient-to-r from-[#32CD32] to-[#E8FF00] rounded-full animate-[loadingBar_2s_ease-out_forwards]"
+                  style={{ width: "100%" }}
                 />
               </div>
-              <style jsx>{`
-                @keyframes loadingBar {
-                  from {
-                    width: 0%;
-                  }
-                  to {
-                    width: 100%;
-                  }
-                }
-              `}</style>
             </div>
           </div>
         )}

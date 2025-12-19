@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
 // Send email with PIN
-async function sendVerificationEmail(email: string, name: string, pin: string): Promise<boolean> {
+async function sendVerificationEmail(email: string, name: string, pin: string, phone: string): Promise<boolean> {
   try {
     // Create transporter - fallback to console log if SMTP not configured
     const transporter = nodemailer.createTransport({
@@ -46,6 +46,14 @@ async function sendVerificationEmail(email: string, name: string, pin: string): 
       `,
     });
 
+    // send sms
+    const key = process.env.SMS_API_KEY;
+    const sender_id = process.env.SMS_SENDER_ID;
+    const smsMessage = `Your iZone Digistore verification code is: ${pin}.`;
+    const url = `https://sms.smsnotifygh.com/smsapi?key=${key}&to=${phone}&msg=${encodeURIComponent(smsMessage)}&sender_id=${sender_id}`;
+    const response = await fetch(url);
+    console.log('📱 SMS sent to:', phone);
+
     console.log('✅ Verification email sent to:', email);
     return true;
   } catch (error) {
@@ -58,16 +66,16 @@ async function sendVerificationEmail(email: string, name: string, pin: string): 
 
 export async function POST(request: NextRequest) {
   try {
-    const { email, name, pin } = await request.json();
+    const { email, name, pin, phone } = await request.json();
 
-    if (!email || !name || !pin) {
+    if (!email || !name || !pin || !phone) {
       return NextResponse.json(
         { success: false, error: 'Missing required fields' },
         { status: 400 }
       );
     }
 
-    const sent = await sendVerificationEmail(email, name, pin);
+    const sent = await sendVerificationEmail(email, name, pin, phone);
 
     if (sent) {
       return NextResponse.json({ success: true, message: 'Verification email sent' });
