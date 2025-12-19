@@ -1,5 +1,7 @@
 // Features section component
-function FeaturesSection() {
+import { Truck, RefreshCcw, Headphones, CreditCard } from "lucide-react";
+
+export default function FeaturesSection() {
   const features = [
     {
       icon: <Truck className="w-6 h-6" />,
