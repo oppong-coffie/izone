@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import {
   Loader2,
@@ -143,8 +144,14 @@ const Page = () => {
         <div className="relative z-10">
           {/* Brand Logo */}
           <div className="flex items-center gap-3 mb-12">
-            <div className="w-16 h-16 bg-gradient-to-br from-[#32CD32] to-[#32CD32] rounded-2xl flex items-center justify-center shadow-lg shadow-[#32CD32]/30">
-              <span className="text-black font-extrabold text-3xl">iZ</span>
+            <div className="w-16 h-16 bg-gradient-to-br from-[#32CD32] to-[#32CD32] rounded-2xl flex items-center justify-center shadow-lg shadow-[#32CD32]/30 overflow-hidden">
+              <Image
+                src="/izone-logo.png"
+                alt="iZone Logo"
+                width={64}
+                height={64}
+                className="object-contain"
+              />
             </div>
             <div>
               <h2 className="text-3xl font-bold tracking-tight">
@@ -206,8 +213,14 @@ const Page = () => {
           {/* Mobile Logo */}
           <div className="text-center mb-8 lg:hidden">
             <Link href="/" className="inline-flex items-center gap-2">
-              <div className="w-14 h-14 bg-gradient-to-br from-[#E8FF00] to-[#F5FF80] rounded-xl flex items-center justify-center shadow-lg shadow-[#E8FF00]/30">
-                <span className="text-[#0A0A0A] font-bold text-2xl">iZ</span>
+              <div className="w-14 h-14 bg-gradient-to-br from-[#E8FF00] to-[#F5FF80] rounded-xl flex items-center justify-center shadow-lg shadow-[#E8FF00]/30 overflow-hidden">
+                <Image
+                  src="/izone-logo.png"
+                  alt="iZone Logo"
+                  width={56}
+                  height={56}
+                  className="object-contain"
+                />
               </div>
               <span className="text-2xl font-bold text-white">
                 iZone<span className="text-[#E8FF00]">Digistore</span>

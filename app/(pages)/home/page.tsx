@@ -1,18 +1,17 @@
 import HeroSection from "../../components/home/HeroSection";
-import CategoryGrid from "../../components/home/CategoryGrid";
-import FeaturedProducts from "../../components/home/FeaturedProducts";
-import { Truck, RefreshCcw, Headphones, CreditCard } from "lucide-react";
-import Link from "next/link";
+import BundleGrid from "../../components/home/BundleGrid";
+import Statistics from "../../components/home/Statistics";
+import ValueProposition from "../../components/home/ValueProposition";
+import Partnership from "../../components/home/Partnership";
 
 export default function Home() {
   return (
     <>
-      {/* <HeroSection /> */}
-      {/* <FeaturesSection /> */}
-      <CategoryGrid />
-      {/* <FeaturedProducts /> */}
-      {/* <DealsBanner /> */}
-      {/* <NewsletterSection /> */}
+      <HeroSection />
+      <Statistics />
+      <BundleGrid />
+      <ValueProposition />
+      <Partnership />
     </>
   );
 }

@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { ArrowRight, Sparkles, Zap, Shield } from "lucide-react";
@@ -11,7 +13,7 @@ const HeroSection: React.FC = () => {
   }
 
   return (
-    <section className="relative min-h-[600px] bg-gradient-to-br from-[#0A0A0A] via-[#171717] to-[#0A0A0A] overflow-hidden">
+    <section className="relative min-h-[700px] bg-gradient-to-br from-[#0A0A0A] via-[#171717] to-[#0A0A0A] overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-[#32CD32]/10 rounded-full blur-3xl animate-pulse" />
@@ -23,8 +25,8 @@ const HeroSection: React.FC = () => {
       <div
         className="absolute inset-0 opacity-10"
         style={{
-          backgroundImage: `linear-gradient(rgba(232, 255, 0, 0.1) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(232, 255, 0, 0.1) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(rgba(50, 205, 50, 0.1) 1px, transparent 1px),
+                           linear-gradient(90deg, rgba(50, 205, 50, 0.1) 1px, transparent 1px)`,
           backgroundSize: "50px 50px",
         }}
       />
@@ -33,44 +35,44 @@ const HeroSection: React.FC = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 py-16 lg:py-24">
           {/* Left Content */}
           <div className="flex-1 text-center lg:text-left">
-            {/* Badge */}
+            {/* Partnership Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#32CD32]/10 border border-[#32CD32]/20 rounded-full mb-6">
               <Sparkles className="w-4 h-4 text-[#32CD32]" />
               <span className="text-[#32CD32] text-sm font-medium">
-                New Arrivals Available
+                Powered by MTN Ghana
               </span>
             </div>
 
             {/* Main Heading */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              Shop Smart,
+              Digital Solutions
               <br />
-              <span className="text-[#32CD32]">Save More</span>
+              <span className="text-[#32CD32]">+ MTN Data</span>
               <br />
-              Study Better
+              One Bundle
             </h1>
 
             {/* Description */}
             <p className="text-gray-400 text-lg md:text-xl max-w-xl mb-8 mx-auto lg:mx-0">
-              Your one-stop destination for all student essentials. From
-              electronics to books, get everything you need at student-friendly
-              prices.
+              Jolli brings together curated digital tools with MTN data in
+              seamless bundles. Whether you&apos;re a student, entrepreneur, or
+              professional—get everything you need in one subscription.
             </p>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Link
-                href="/products"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#32CD32] text-[#0A0A0A] font-semibold rounded-full hover:bg-[#F5FF80] hover:shadow-[0_0_30px_rgba(50,205,50,0.4)] transition-all duration-300 group"
+                href="/bundles"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#32CD32] text-[#0A0A0A] font-semibold rounded-full hover:bg-[#28a428] hover:shadow-[0_0_30px_rgba(50,205,50,0.4)] transition-all duration-300 group"
               >
-                Shop Now
+                Explore Bundles
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                href="/deals"
+                href="/about"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border-2 border-[#32CD32] text-[#32CD32] font-semibold rounded-full hover:bg-[#32CD32] hover:text-[#0A0A0A] transition-all duration-300"
               >
-                View Deals 🔥
+                Learn More
               </Link>
             </div>
 
@@ -78,11 +80,11 @@ const HeroSection: React.FC = () => {
             <div className="flex flex-wrap items-center gap-6 mt-10 justify-center lg:justify-start">
               <div className="flex items-center gap-2 text-gray-400">
                 <Zap className="w-5 h-5 text-[#32CD32]" />
-                <span className="text-sm">Fast Delivery</span>
+                <span className="text-sm">Instant Activation</span>
               </div>
               <div className="flex items-center gap-2 text-gray-400">
                 <Shield className="w-5 h-5 text-[#32CD32]" />
-                <span className="text-sm">Secure Payments</span>
+                <span className="text-sm">MoMo Payments</span>
               </div>
               <div className="flex items-center gap-2 text-gray-400">
                 <span className="text-[#32CD32] font-bold">24/7</span>
@@ -91,59 +93,72 @@ const HeroSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Content - Featured Product Card */}
+          {/* Right Content - Featured Bundle Card */}
           <div className="flex-1 relative">
             <div className="relative max-w-md mx-auto">
-              {/* Floating Cards */}
-              <div className="absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-br from-[#32CD32] to-[#F5FF80] rounded-2xl shadow-2xl flex items-center justify-center animate-bounce z-10">
+              {/* Floating Stats Cards */}
+              <div className="absolute -top-4 -left-4 w-28 h-28 bg-[#32CD32] rounded-2xl shadow-2xl flex items-center justify-center animate-bounce z-10">
                 <div className="text-center">
-                  <p className="text-[#0A0A0A] font-bold text-xl">50%</p>
-                  <p className="text-[#0A0A0A] text-xs font-medium">OFF</p>
+                  <p className="text-[#0A0A0A] font-bold text-2xl">11</p>
+                  <p className="text-[#0A0A0A] text-xs font-medium">Bundles</p>
                 </div>
               </div>
 
-              {/* Main Product Card */}
+              {/* Main Bundle Preview Card */}
               <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl p-6 border border-gray-700 shadow-2xl">
-                <div className="aspect-square bg-gradient-to-br from-gray-700 to-gray-800 rounded-2xl mb-6 flex items-center justify-center">
-                  <div className="text-center">
-                    <span className="text-6xl">💻</span>
-                    <p className="text-gray-400 mt-4 text-sm">
-                      Featured Product
-                    </p>
+                <div className="aspect-square bg-gradient-to-br from-[#32CD32]/20 to-[#32CD32]/5 rounded-2xl mb-6 flex items-center justify-center relative overflow-hidden">
+                  {/* Bundle Icons Grid */}
+                  <div className="grid grid-cols-2 gap-4 p-8">
+                    <div className="w-16 h-16 bg-white/10 backdrop-blur rounded-xl flex items-center justify-center text-3xl">
+                      💼
+                    </div>
+                    <div className="w-16 h-16 bg-white/10 backdrop-blur rounded-xl flex items-center justify-center text-3xl">
+                      📚
+                    </div>
+                    <div className="w-16 h-16 bg-white/10 backdrop-blur rounded-xl flex items-center justify-center text-3xl">
+                      🎬
+                    </div>
+                    <div className="w-16 h-16 bg-white/10 backdrop-blur rounded-xl flex items-center justify-center text-3xl">
+                      🏥
+                    </div>
                   </div>
                 </div>
 
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
                     <span className="px-2 py-1 bg-[#32CD32]/10 text-[#32CD32] text-xs font-medium rounded">
-                      BESTSELLER
+                      MOST POPULAR
                     </span>
-                    <span className="px-2 py-1 bg-red-500/10 text-red-400 text-xs font-medium rounded">
-                      HOT
+                    <span className="px-2 py-1 bg-green-500/10 text-green-400 text-xs font-medium rounded">
+                      + MTN DATA
                     </span>
                   </div>
                   <h3 className="text-white font-semibold text-lg">
-                    Student Laptop Pro
+                    Student Power Bundle
                   </h3>
+                  <p className="text-gray-400 text-sm">
+                    E-learning, research tools & 8GB MTN Data
+                  </p>
                   <div className="flex items-center gap-3">
                     <span className="text-[#32CD32] font-bold text-2xl">
-                      GH₵ 2,499
+                      GH₵ 80
                     </span>
-                    <span className="text-gray-500 line-through text-sm">
-                      GH₵ 4,999
-                    </span>
+                    <span className="text-gray-500 text-sm">/month</span>
                   </div>
-                  <button className="w-full py-3 bg-[#32CD32] text-[#0A0A0A] font-semibold rounded-xl hover:bg-[#F5FF80] transition-colors">
-                    Add to Cart
-                  </button>
+                  <Link
+                    href="/bundles/student-power"
+                    className="block w-full py-3 bg-[#32CD32] text-[#0A0A0A] font-semibold rounded-xl hover:bg-[#28a428] hover:shadow-lg hover:shadow-[#32CD32]/30 transition-all text-center"
+                  >
+                    Subscribe Now
+                  </Link>
                 </div>
               </div>
 
-              {/* Floating Stats */}
+              {/* Floating Users Badge */}
               <div className="absolute -bottom-4 -right-4 px-4 py-3 bg-white dark:bg-gray-800 rounded-xl shadow-xl">
-                <p className="text-sm text-gray-500">Happy Students</p>
+                <p className="text-sm text-gray-500">Active Users</p>
                 <p className="text-2xl font-bold text-gray-900 dark:text-white">
-                  10K+
+                  19M+
                 </p>
               </div>
             </div>

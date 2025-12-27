@@ -27,7 +27,7 @@ const products = [
     image: "🎧",
     rating: 4.8,
     reviewCount: 256,
-    category: "Electronics",
+    category: "Business",
     isSale: true,
   },
   {
@@ -38,7 +38,7 @@ const products = [
     image: "🎒",
     rating: 4.6,
     reviewCount: 189,
-    category: "Fashion",
+    category: "Business",
     isNew: true,
   },
   {
@@ -50,7 +50,7 @@ const products = [
     image: "🔢",
     rating: 4.9,
     reviewCount: 412,
-    category: "Electronics",
+    category: "Business",
     isSale: true,
   },
   {
@@ -61,7 +61,7 @@ const products = [
     image: "📒",
     rating: 4.7,
     reviewCount: 98,
-    category: "Books",
+    category: "Education",
     isNew: true,
   },
   {
@@ -73,7 +73,7 @@ const products = [
     image: "🔌",
     rating: 4.5,
     reviewCount: 167,
-    category: "Electronics",
+    category: "Business",
     isSale: true,
   },
   {
@@ -84,7 +84,7 @@ const products = [
     image: "💡",
     rating: 4.4,
     reviewCount: 134,
-    category: "Electronics",
+    category: "Healthcare",
   },
   {
     id: "7",
@@ -95,7 +95,7 @@ const products = [
     image: "🎧",
     rating: 4.9,
     reviewCount: 523,
-    category: "Electronics",
+    category: "Logistics and E-commerce",
     isSale: true,
   },
   {
@@ -117,7 +117,7 @@ const products = [
     image: "🔋",
     rating: 4.6,
     reviewCount: 312,
-    category: "Electronics",
+    category: "Agriculture",
   },
   {
     id: "10",
@@ -128,7 +128,7 @@ const products = [
     image: "👕",
     rating: 4.7,
     reviewCount: 456,
-    category: "Fashion",
+    category: "Hospitality and Tourism",
     isSale: true,
   },
   {
@@ -139,7 +139,7 @@ const products = [
     image: "🖱️",
     rating: 4.5,
     reviewCount: 234,
-    category: "Electronics",
+    category: "Financial Services",
   },
   {
     id: "12",
@@ -150,12 +150,12 @@ const products = [
     image: "📚",
     rating: 4.9,
     reviewCount: 178,
-    category: "Books",
+    category: "Startups & Gig Workers",
     isSale: true,
   },
 ];
 
-const categories = ["All", "Electronics", "Fashion", "Books", "Digital", "Sports"];
+const categories = ["All", "Business", "Education", "Healthcare", "Logistics and E-commerce", "Agriculture", "Hospitality and Tourism", "Financial Services", "Startups & Gig Workers", "Government & Public", "Legal & Judiciary", "Content Creators"];
 
 /* ---------------- COMPONENT ---------------- */
 

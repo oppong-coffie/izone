@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ShoppingCart, Menu, X } from "lucide-react";
+import { ShoppingCart, Menu, X, Zap } from "lucide-react";
 import { useState } from "react";
 
 export default function Header() {
@@ -10,39 +10,50 @@ export default function Header() {
     <header className="fixed top-0 left-0 w-full z-50 bg-[#0A0A0A]/90 backdrop-blur-xl border-b border-[#32CD32]/30">
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-gradient-to-br from-[#32CD32] to-[#32CD32] rounded-xl flex items-center justify-center shadow-lg shadow-[#32CD32]/30">
-            <span className="text-black font-bold text-lg">iZ</span>
+        <Link href="/" className="flex items-center gap-3">
+          <div className="w-12 h-12 bg-[#32CD32] rounded-xl flex items-center justify-center shadow-lg shadow-[#32CD32]/30 relative overflow-hidden">
+            <span className="text-[#0A0A0A] font-black text-xl">J</span>
+            <Zap className="absolute -right-1 -bottom-1 w-5 h-5 text-white/50" />
           </div>
-          <h1 className="text-white text-xl font-semibold">
-            iZone <span className="text-[#32CD32]">Digistore</span>
-          </h1>
-
-          <p className="text-gray-400 mt-1">
-            Welcome, <span className="font-medium text-[#32CD32]">User</span>
-          </p>
+          <div className="flex flex-col">
+            <h1 className="text-white text-xl font-bold tracking-tight">
+              Jolli <span className="text-[#32CD32]">by iZone</span>
+            </h1>
+            <span className="text-[10px] text-gray-400 tracking-wider uppercase">
+              Powered by MTN
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-6 text-sm text-gray-300">
-          <Link href="/" className="hover:text-[#32CD32] transition-colors">
+        <nav className="hidden lg:flex items-center gap-8 text-sm text-gray-300">
+          <Link
+            href="/"
+            className="hover:text-[#32CD32] transition-colors font-medium"
+          >
             Home
           </Link>
           <Link
+            href="/bundles"
+            className="hover:text-[#32CD32] transition-colors font-medium"
+          >
+            Bundles
+          </Link>
+          <Link
             href="/products"
-            className="hover:text-[#32CD32] transition-colors"
+            className="hover:text-[#32CD32] transition-colors font-medium"
           >
             Products
           </Link>
           <Link
             href="/about"
-            className="hover:text-[#32CD32] transition-colors"
+            className="hover:text-[#32CD32] transition-colors font-medium"
           >
             About
           </Link>
           <Link
             href="/contact"
-            className="hover:text-[#32CD32] transition-colors"
+            className="hover:text-[#32CD32] transition-colors font-medium"
           >
             Contact
           </Link>
@@ -54,6 +65,12 @@ export default function Header() {
             <span className="absolute -top-2 -right-2 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-bold leading-none text-[#0A0A0A] bg-[#32CD32] rounded-full">
               0
             </span>
+          </Link>
+          <Link
+            href="/login"
+            className="px-5 py-2.5 bg-[#32CD32] text-[#0A0A0A] font-semibold rounded-full hover:bg-[#28a428] hover:shadow-lg hover:shadow-[#32CD32]/30 transition-all"
+          >
+            Get Started
           </Link>
         </nav>
 
@@ -81,6 +98,13 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(false)}
             >
               Home
+            </Link>
+            <Link
+              href="/bundles"
+              className="hover:text-[#32CD32] transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Bundles
             </Link>
             <Link
               href="/products"
@@ -113,10 +137,10 @@ export default function Header() {
             </Link>
             <Link
               href="/login"
-              className="hover:text-[#32CD32] transition-colors"
+              className="w-fit px-5 py-2.5 bg-[#32CD32] text-[#0A0A0A] font-semibold rounded-full"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Login
+              Get Started
             </Link>
           </div>
         </nav>
