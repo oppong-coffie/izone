@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -33,6 +33,11 @@ const Page = () => {
   const [enteredPin, setEnteredPin] = useState("");
   const [verificationError, setVerificationError] = useState("");
   const [showSuccess, setShowSuccess] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Generate a random 4-digit PIN
   const generatePin = (): string => {
@@ -141,17 +146,11 @@ const Page = () => {
         <div className="absolute bottom-0 right-0 w-72 h-72 bg-[#32CD32]/15 rounded-full blur-2xl animate-pulse" />
 
         {/* Content */}
-        <div className="relative z-10">
+        <div className="relative z-10 flex flex-col h-full">
           {/* Brand Logo */}
-          <div className="flex items-center gap-3 mb-12">
-            <div className="w-16 h-16 bg-gradient-to-br from-[#32CD32] to-[#32CD32] rounded-2xl flex items-center justify-center shadow-lg shadow-[#32CD32]/30 overflow-hidden">
-              <Image
-                src="/izone-logo.png"
-                alt="iZone Logo"
-                width={64}
-                height={64}
-                className="object-contain"
-              />
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-16 h-16 flex items-center justify-center shadow-lg shadow-[#32CD32]/30">
+              <Image src="/izone3.png" alt="Logo" width={74} height={74} />
             </div>
             <div>
               <h2 className="text-3xl font-bold tracking-tight">
@@ -164,38 +163,62 @@ const Page = () => {
             </div>
           </div>
 
-          {/* Headline */}
-          <h1 className="text-5xl font-extrabold leading-tight mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-            Power Your <br />
-            <span className="bg-gradient-to-r from-[#32CD32] to-[#32CD32] bg-clip-text text-transparent">
-              Digital Lifestyle
-            </span>
-          </h1>
+          {/* Main Welcome Section */}
+          <div className="flex-1 flex flex-col justify-center">
+            {/* Welcome Headline */}
+            <h1 className="ml-9 text-5xl font-extrabold leading-tight mb-4 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+              Welcome
+            </h1>
+            <p className="text-xl text-gray-400 mb-8 max-w-md">
+              Create your account and start your digital shopping journey with
+              exclusive deals and premium tech.
+            </p>
 
-          <p className="text-gray-400 max-w-md mb-12 text-lg leading-relaxed">
-            From gadgets ⚡ to digital tools 💻, iZone Digistore brings you
-            affordable and high-quality tech.
-          </p>
+            {/* Floating Icons Animation */}
+            <div className="relative h-32 mb-8">
+              {isMounted &&
+                [
+                  { icon: "⚡", delay: "0s", x: "10%", y: "20%" },
+                  { icon: "🛒", delay: "0.5s", x: "30%", y: "60%" },
+                  { icon: "💻", delay: "1s", x: "55%", y: "10%" },
+                  { icon: "📱", delay: "1.5s", x: "75%", y: "50%" },
+                  { icon: "🎧", delay: "2s", x: "20%", y: "75%" },
+                  { icon: "🎮", delay: "2.5s", x: "60%", y: "70%" },
+                ].map((item, index) => (
+                  <div
+                    key={index}
+                    className="absolute text-3xl animate-bounce"
+                    style={{
+                      left: item.x,
+                      top: item.y,
+                      animationDelay: item.delay,
+                      animationDuration: "2s",
+                    }}
+                  >
+                    {item.icon}
+                  </div>
+                ))}
+            </div>
 
-          {/* Feature List */}
-          <ul className="space-y-5 flex gap-7">
-            {[
-              { icon: "⚡", text: "Fast" },
-              { icon: "🛍️", text: "Affordable" },
-              { icon: "📦", text: "Secure" },
-              { icon: "💻", text: "Reliable" },
-            ].map((feature, index) => (
-              <li
-                key={index}
-                className="flex items-center group hover:translate-x-2 transition-transform duration-300"
-              >
-                <span className="text-2xl group-hover:scale-110 transition-transform">
-                  {feature.icon}
-                </span>
-                <span className="text-gray-300">{feature.text}</span>
-              </li>
-            ))}
-          </ul>
+            {/* Trust Stats */}
+            <div className="grid grid-cols-3 gap-6">
+              {[
+                { value: "10K+", label: "Happy Customers" },
+                { value: "500+", label: "Products" },
+                { value: "24/7", label: "Support" },
+              ].map((stat, index) => (
+                <div
+                  key={index}
+                  className="text-center p-4 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm hover:border-[#32CD32]/30 transition-all duration-300"
+                >
+                  <div className="text-2xl font-bold text-[#32CD32] mb-1">
+                    {stat.value}
+                  </div>
+                  <div className="text-xs text-gray-400">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Footer */}

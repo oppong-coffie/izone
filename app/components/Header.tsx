@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ShoppingCart, Menu, X, Zap } from "lucide-react";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -11,13 +12,16 @@ export default function Header() {
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
-          <div className="w-12 h-12 bg-[#32CD32] rounded-xl flex items-center justify-center shadow-lg shadow-[#32CD32]/30 relative overflow-hidden">
-            <span className="text-[#0A0A0A] font-black text-xl">J</span>
-            <Zap className="absolute -right-1 -bottom-1 w-5 h-5 text-white/50" />
-          </div>
+          <Image
+            src="/izone3.png"
+            alt="Logo"
+            width={50}
+            height={50}
+            className="w-12 h-12"
+          />
           <div className="flex flex-col">
             <h1 className="text-white text-xl font-bold tracking-tight">
-              Jolli <span className="text-[#32CD32]">by iZone</span>
+              <span className="text-[#32CD32]">iZone</span>
             </h1>
             <span className="text-[10px] text-gray-400 tracking-wider uppercase">
               Powered by MTN
@@ -28,7 +32,7 @@ export default function Header() {
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-8 text-sm text-gray-300">
           <Link
-            href="/"
+            href="/home"
             className="hover:text-[#32CD32] transition-colors font-medium"
           >
             Home
@@ -40,16 +44,16 @@ export default function Header() {
             Bundles
           </Link>
           <Link
-            href="/products"
-            className="hover:text-[#32CD32] transition-colors font-medium"
-          >
-            Products
-          </Link>
-          <Link
             href="/about"
             className="hover:text-[#32CD32] transition-colors font-medium"
           >
             About
+          </Link>
+          <Link
+            href="/merchant"
+            className="hover:text-[#32CD32] transition-colors font-medium"
+          >
+            Merchant Center
           </Link>
           <Link
             href="/contact"
@@ -119,6 +123,13 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(false)}
             >
               About
+            </Link>
+            <Link
+              href="/merchant"
+              className="hover:text-[#32CD32] transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Merchant Center
             </Link>
             <Link
               href="/contact"

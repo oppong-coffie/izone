@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { CheckCircle } from "lucide-react";
 
 const mtnBenefits = [
@@ -68,9 +69,13 @@ const Partnership: React.FC = () => {
           {/* iZone Card */}
           <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl p-8 border border-gray-700/50">
             <div className="flex items-center gap-4 mb-6">
-              <div className="w-16 h-16 bg-[#32CD32] rounded-xl flex items-center justify-center">
-                <span className="text-[#0A0A0A] font-black text-xl">iZ</span>
-              </div>
+              <Image
+                src="/izone3.png"
+                alt="Logo"
+                width={60}
+                height={60}
+                className="w-16 h-16"
+              />
               <div>
                 <h3 className="text-white font-bold text-xl">iZone Limited</h3>
                 <p className="text-gray-400 text-sm">Technology Partner</p>
@@ -100,9 +105,13 @@ const Partnership: React.FC = () => {
                 <span className="text-[#0A0A0A] font-bold text-xs">MTN</span>
               </div>
               <span className="text-gray-500">×</span>
-              <div className="w-10 h-10 bg-[#32CD32] rounded-lg flex items-center justify-center">
-                <span className="text-[#0A0A0A] font-bold text-xs">iZ</span>
-              </div>
+              <Image
+                src="/izone3.png"
+                alt="Logo"
+                width={30}
+                height={30}
+                className="w-10 h-10"
+              />{" "}
             </div>
           </div>
         </div>
