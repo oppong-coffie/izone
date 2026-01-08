@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { clearCart } from "../../../lib/db";
+import { clearCart } from "@/lib/db";
 
 export async function POST() {
   try {

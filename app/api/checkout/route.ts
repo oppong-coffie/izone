@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getCart, getProduct } from "../../../lib/db";
+import { getCart, getProduct } from "@/lib/db";
 
 export async function POST(request: Request) {
   try {
