@@ -150,7 +150,7 @@ const BulkBundles: React.FC = () => {
             <div>
               <h4 className="font-bold text-blue-500 mb-1">Secure & Valid</h4>
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                All bulk data is 100% legitimate MTN data. No hacks, no
+                All bulk data is 100% legitimate high-speed data. No hacks, no
                 shortcuts. Guaranteed validity.
               </p>
             </div>

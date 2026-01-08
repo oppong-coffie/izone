@@ -24,7 +24,7 @@ export default function Header() {
               <span className="text-[#32CD32]">iZone</span>
             </h1>
             <span className="text-[10px] text-gray-400 tracking-wider uppercase">
-              Powered by MTN
+              Powered by iZone
             </span>
           </div>
         </Link>

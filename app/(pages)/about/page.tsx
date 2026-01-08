@@ -8,9 +8,9 @@ import PartnershipSection from "../../components/about/PartnershipSection";
 import ContactCTA from "../../components/about/ContactCTA";
 
 export const metadata = {
-  title: "About Us | Jolli by iZone - Powered by MTN Ghana",
+  title: "About Us | Jolli by iZone",
   description:
-    "Learn about iZone Limited, Ghana's leading technology distribution company. Discover our mission to democratize digital access through Jolli bundles powered by MTN.",
+    "Learn about iZone Limited, Ghana's leading technology distribution company. Discover our mission to democratize digital access through Jolli bundles powered by iZone.",
 };
 
 export default function AboutPage() {

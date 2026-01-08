@@ -36,7 +36,7 @@ const AboutHero: React.FC = () => {
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#32CD32]/10 border border-[#32CD32]/20 rounded-full mb-6">
             <Sparkles className="w-4 h-4 text-[#32CD32]" />
             <span className="text-[#32CD32] text-sm font-medium">
-              Jolli by iZone • Powered by MTN Ghana
+              Jolli by iZone • Powered by iZone
             </span>
           </div>
 

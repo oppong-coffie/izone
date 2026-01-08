@@ -8,7 +8,7 @@ import MerchantCTA from "../../components/merchant/MerchantCTA";
 export const metadata = {
   title: "Merchant Center | Join Jolli by iZone",
   description:
-    "Partner with Jolli by iZone to distribution your digital products to millions of MTN subscribers. Integrated payments, marketing support, and seamless scaling.",
+    "Partner with Jolli by iZone to distribution your digital products to millions of subscribers. Integrated payments, marketing support, and seamless scaling.",
 };
 
 const MerchantPage = () => {

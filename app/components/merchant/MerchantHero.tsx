@@ -31,9 +31,9 @@ const MerchantHero: React.FC = () => {
 
           {/* Description */}
           <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10">
-            Join Ghana's fastest-growing data reselling network. Buy MTN bundles
-            in bulk at unbeatable wholesale rates and resell to your customers
-            instantly via our API or Dashboard.
+            Join Ghana's fastest-growing data reselling network. Buy data
+            bundles in bulk at unbeatable wholesale rates and resell to your
+            customers instantly via our API or Dashboard.
           </p>
 
           {/* CTA Buttons */}

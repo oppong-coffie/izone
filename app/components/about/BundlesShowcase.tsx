@@ -107,8 +107,8 @@ const BundlesShowcase: React.FC = () => {
             Bundles for Every <span className="text-[#32CD32]">Industry</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Each bundle combines curated digital tools with MTN Data, tailored
-            for specific verticals to meet unique needs.
+            Each bundle combines curated digital tools with High-Speed Data,
+            tailored for specific verticals to meet unique needs.
           </p>
         </div>
 
@@ -142,10 +142,10 @@ const BundlesShowcase: React.FC = () => {
                 {/* Content */}
                 <p className="text-gray-400 text-sm mb-3">{bundle.content}</p>
 
-                {/* MTN Data Badge */}
+                {/* Data Badge */}
                 <div className="flex items-center gap-2">
                   <span className="text-xs text-[#32CD32] font-medium">
-                    + MTN Data
+                    + High-Speed Data
                   </span>
                 </div>
               </div>

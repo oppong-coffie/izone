@@ -39,7 +39,7 @@ const HeroSection: React.FC = () => {
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#32CD32]/10 border border-[#32CD32]/20 rounded-full mb-6">
               <Sparkles className="w-4 h-4 text-[#32CD32]" />
               <span className="text-[#32CD32] text-sm font-medium">
-                Powered by MTN Ghana
+                Powered by iZone
               </span>
             </div>
 
@@ -47,14 +47,14 @@ const HeroSection: React.FC = () => {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
               Digital Solutions
               <br />
-              <span className="text-[#32CD32]">+ MTN Data</span>
+              <span className="text-[#32CD32]">+ High-Speed Data</span>
               <br />
               One Bundle
             </h1>
 
             {/* Description */}
             <p className="text-gray-400 text-lg md:text-xl max-w-xl mb-8 mx-auto lg:mx-0">
-              Jolli brings together curated digital tools with MTN data in
+              Jolli brings together curated digital tools with reliable data in
               seamless bundles. Whether you&apos;re a student, entrepreneur, or
               professional—get everything you need in one subscription.
             </p>
@@ -84,7 +84,7 @@ const HeroSection: React.FC = () => {
               </div>
               <div className="flex items-center gap-2 text-gray-400">
                 <Shield className="w-5 h-5 text-[#32CD32]" />
-                <span className="text-sm">MoMo Payments</span>
+                <span className="text-sm">Secure Payments</span>
               </div>
               <div className="flex items-center gap-2 text-gray-400">
                 <span className="text-[#32CD32] font-bold">24/7</span>
@@ -130,14 +130,14 @@ const HeroSection: React.FC = () => {
                       MOST POPULAR
                     </span>
                     <span className="px-2 py-1 bg-green-500/10 text-green-400 text-xs font-medium rounded">
-                      + MTN DATA
+                      + DATA
                     </span>
                   </div>
                   <h3 className="text-white font-semibold text-lg">
                     Student Power Bundle
                   </h3>
                   <p className="text-gray-400 text-sm">
-                    E-learning, research tools & 8GB MTN Data
+                    E-learning, research tools & 8GB Data
                   </p>
                   <div className="flex items-center gap-3">
                     <span className="text-[#32CD32] font-bold text-2xl">

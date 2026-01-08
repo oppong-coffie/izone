@@ -23,7 +23,7 @@ const BundleGrid: React.FC = () => {
             </h2>
             <p className="text-gray-600 dark:text-gray-400 max-w-lg">
               Curated digital solutions tailored for your industry, combined
-              with MTN Data for seamless connectivity
+              with High-Speed Data for seamless connectivity
             </p>
           </div>
           <Link
@@ -50,7 +50,7 @@ const BundleGrid: React.FC = () => {
                 <span className="text-5xl filter drop-shadow-lg group-hover:scale-110 transition-transform duration-300">
                   {bundle.icon}
                 </span>
-                {/* MTN Data Badge */}
+                {/* Data Badge */}
                 <div className="absolute top-3 right-3 px-2 py-1 bg-white/90 dark:bg-gray-900/90 rounded-full text-xs font-medium text-gray-700 dark:text-gray-300">
                   {bundle.dataAllocation}
                 </div>

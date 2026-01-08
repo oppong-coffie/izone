@@ -109,12 +109,34 @@ export default function BundleDetailContent({ bundle }: Props) {
                   </li>
                 </ul>
 
-                <button className="w-full py-4 bg-[#32CD32] text-[#0A0A0A] font-bold rounded-xl hover:bg-[#28a428] hover:shadow-lg hover:shadow-[#32CD32]/30 transition-all text-lg">
+                <button
+                  onClick={async () => {
+                    try {
+                      const res = await fetch("/api/cart", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                          productId: bundle.id,
+                          quantity: 1,
+                        }),
+                      });
+                      if (res.ok) {
+                        window.location.href = "/cart";
+                      } else {
+                        alert("Failed to add to cart");
+                      }
+                    } catch (err) {
+                      console.error(err);
+                      alert("Error adding to cart");
+                    }
+                  }}
+                  className="w-full py-4 bg-[#32CD32] text-[#0A0A0A] font-bold rounded-xl hover:bg-[#28a428] hover:shadow-lg hover:shadow-[#32CD32]/30 transition-all text-lg"
+                >
                   Subscribe Now
                 </button>
 
                 <p className="text-center text-gray-500 dark:text-gray-400 text-sm mt-4">
-                  Pay with MTN MoMo • Cancel anytime
+                  Pay with MoMo • Cancel anytime
                 </p>
               </div>
             </div>

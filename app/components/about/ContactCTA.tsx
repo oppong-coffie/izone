@@ -96,15 +96,11 @@ const ContactCTA: React.FC = () => {
           {/* Bottom Branding */}
           <div className="mt-12 text-center">
             <div className="inline-flex items-center gap-3">
-              <div className="w-8 h-8 bg-[#FFCC00] rounded-lg flex items-center justify-center">
-                <span className="text-[#0A0A0A] font-bold text-xs">MTN</span>
-              </div>
-              <span className="text-gray-400">×</span>
               <div className="w-8 h-8 bg-[#32CD32] rounded-lg flex items-center justify-center">
                 <span className="text-[#0A0A0A] font-bold text-xs">iZ</span>
               </div>
               <span className="text-gray-500 dark:text-gray-400 ml-2">
-                Jolli by iZone — Powered by MTN Ghana
+                Jolli by iZone — Powered by iZone
               </span>
             </div>
           </div>

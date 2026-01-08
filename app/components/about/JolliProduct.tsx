@@ -15,13 +15,13 @@ const features = [
     icon: Zap,
     title: "Activation Engine",
     description:
-      "Seamless bundling platform that combines MTN mobile data with curated digital solutions.",
+      "Seamless bundling platform that combines High-Speed mobile data with curated digital solutions.",
   },
   {
     icon: Shield,
-    title: "Co-branded with MTN",
+    title: "Co-branded with Partner",
     description:
-      "Built for consumer trust and reach, leveraging MTN's established brand in Ghana.",
+      "Built for consumer trust and reach, leveraging our partner's established brand in Ghana.",
   },
 ];
 
@@ -49,9 +49,9 @@ const JolliProduct: React.FC = () => {
             </h2>
             <p className="text-gray-600 dark:text-gray-400 text-lg mb-8">
               Jolli is a digital storefront and bundling platform that brings
-              together MTN mobile data with curated digital solutions—tailored
-              for specific verticals. Users subscribe once and get both data +
-              digital tools in one seamless package.
+              together High-Speed mobile data with curated digital
+              solutions—tailored for specific verticals. Users subscribe once
+              and get both data + digital tools in one seamless package.
             </p>
 
             {/* Features */}

@@ -51,7 +51,7 @@ const QuickLinks: React.FC = () => {
           </h2>
           <p className="text-gray-400 max-w-xl mx-auto">
             Discover tailored digital solutions for your industry, all bundled
-            with MTN Data.
+            with High-Speed Data.
           </p>
         </div>
 

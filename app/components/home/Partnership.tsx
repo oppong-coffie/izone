@@ -38,22 +38,24 @@ const Partnership: React.FC = () => {
             <span className="text-[#32CD32]">Together</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            A co-branded model that makes MTN the fuel behind a fast-growing
+            A co-branded model that makes us the fuel behind a fast-growing
             digital marketplace
           </p>
         </div>
 
         {/* Partnership Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-          {/* MTN Card */}
+          {/* Network Partner Card */}
           <div className="bg-gradient-to-br from-[#32CD32]/10 to-[#32CD32]/5 rounded-2xl p-8 border border-[#32CD32]/20">
             <div className="flex items-center gap-4 mb-6">
-              <div className="w-16 h-16 bg-[#FFCC00] rounded-xl flex items-center justify-center">
-                <span className="text-[#0A0A0A] font-black text-xl">MTN</span>
+              <div className="w-16 h-16 bg-[#32CD32] rounded-xl flex items-center justify-center">
+                <span className="text-[#0A0A0A] font-black text-xl">NP</span>
               </div>
               <div>
-                <h3 className="text-white font-bold text-xl">MTN Ghana</h3>
-                <p className="text-gray-400 text-sm">Network Partner</p>
+                <h3 className="text-white font-bold text-xl">
+                  Network Partner
+                </h3>
+                <p className="text-gray-400 text-sm">Connectivity Provider</p>
               </div>
             </div>
             <ul className="space-y-3">
@@ -97,14 +99,10 @@ const Partnership: React.FC = () => {
           <div className="inline-flex flex-col items-center gap-4 p-8 bg-gradient-to-r from-gray-800/30 to-gray-900/30 rounded-2xl border border-gray-700/50">
             <p className="text-white text-lg font-medium max-w-2xl">
               &ldquo;Together, we can power millions of digital journeys —
-              making MTN not just a telecom provider, but the go-to platform for
+              making us not just a telecom provider, but the go-to platform for
               digital life in Ghana.&rdquo;
             </p>
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 bg-[#FFCC00] rounded-lg flex items-center justify-center">
-                <span className="text-[#0A0A0A] font-bold text-xs">MTN</span>
-              </div>
-              <span className="text-gray-500">×</span>
               <Image
                 src="/izone3.png"
                 alt="Logo"

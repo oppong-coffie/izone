@@ -88,10 +88,6 @@ const ContactInfo: React.FC = () => {
       {/* Partnership Card */}
       <div className="p-6 bg-gradient-to-br from-[#32CD32]/10 to-[#32CD32]/5 rounded-2xl border border-[#32CD32]/20">
         <div className="flex items-center gap-4 mb-4">
-          <div className="w-10 h-10 bg-[#FFCC00] rounded-lg flex items-center justify-center">
-            <span className="text-[#0A0A0A] font-bold text-xs">MTN</span>
-          </div>
-          <span className="text-gray-500">×</span>
           <Image
             src="/izone3.png"
             alt="iZone Logo"
@@ -104,7 +100,7 @@ const ContactInfo: React.FC = () => {
           Jolli by iZone
         </h3>
         <p className="text-gray-600 dark:text-gray-400 text-sm">
-          Powered by MTN Ghana — Ghana&apos;s premier digital bundling platform
+          Powered by iZone — Ghana&apos;s premier digital bundling platform
           combining curated tools with mobile data.
         </p>
       </div>

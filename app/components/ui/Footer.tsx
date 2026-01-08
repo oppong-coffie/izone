@@ -84,13 +84,14 @@ const Footer: React.FC = () => {
                   <span className="text-[#32CD32]">iZone</span>
                 </h2>
                 <span className="text-[10px] text-gray-400 tracking-wider uppercase">
-                  Powered by MTN
+                  Powered by iZone
                 </span>
               </div>
             </Link>
             <p className="text-gray-400 mb-6 max-w-sm">
               Democratizing digital access in Ghana. Curated digital solutions
-              bundled with MTN Data for students, professionals, and businesses.
+              bundled with High-Speed Data for students, professionals, and
+              businesses.
             </p>
 
             {/* Contact Info */}
@@ -181,12 +182,6 @@ const Footer: React.FC = () => {
             {/* Partnership Badges */}
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-[#FFCC00] rounded-lg flex items-center justify-center">
-                  <span className="text-[#0A0A0A] font-bold text-[10px]">
-                    MTN
-                  </span>
-                </div>
-                <span className="text-gray-500 text-xs">×</span>
                 <Image
                   src="/izone3.png"
                   alt="iZone Logo"

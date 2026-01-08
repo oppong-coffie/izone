@@ -21,7 +21,7 @@ const milestones = [
   {
     icon: Users,
     year: "Partnership",
-    title: "Long-Standing MTN Partner",
+    title: "Long-Standing Telecom Partner",
     description:
       "A trusted provider of mobile and digital services—deeply integrated into Ghana's economic and digital growth story.",
   },

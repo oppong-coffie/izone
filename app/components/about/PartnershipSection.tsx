@@ -26,17 +26,17 @@ const financialModel = [
   {
     step: "02",
     title: "Favorable Wholesale Rate",
-    description: "MTN provides discounted rates for data used in bundles.",
+    description: "Partner provides discounted rates for data used in bundles.",
   },
   {
     step: "03",
     title: "Customer Billing & Collection",
-    description: "iZone collects payments via its storefront and MTN MoMo.",
+    description: "iZone collects payments via its storefront and MoMo.",
   },
   {
     step: "04",
-    title: "Payment to MTN",
-    description: "MTN is reimbursed based on monthly agreed drawdowns.",
+    title: "Payment to Partner",
+    description: "Partner is reimbursed based on monthly agreed drawdowns.",
   },
 ];
 
@@ -61,25 +61,27 @@ const PartnershipSection: React.FC = () => {
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
             A co-branded model designed to be simple, scalable, and
-            impactful—making MTN the fuel behind a fast-growing digital
+            impactful—making our partner the fuel behind a fast-growing digital
             marketplace.
           </p>
         </div>
 
         {/* Partnership Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-          {/* MTN Card */}
+          {/* Network Partner Card */}
           <div className="bg-gradient-to-br from-[#FFCC00]/10 to-[#FFCC00]/5 rounded-2xl p-8 border border-[#FFCC00]/20">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-16 h-16 bg-[#FFCC00] rounded-xl flex items-center justify-center">
-                <span className="text-[#0A0A0A] font-black text-xl">MTN</span>
+                <span className="text-[#0A0A0A] font-black text-xl">NP</span>
               </div>
               <div>
-                <h3 className="text-white font-bold text-xl">MTN Ghana</h3>
-                <p className="text-gray-400 text-sm">Network Partner</p>
+                <h3 className="text-white font-bold text-xl">
+                  Network Partner
+                </h3>
+                <p className="text-gray-400 text-sm">Connectivity Provider</p>
               </div>
             </div>
-            <p className="text-gray-300 mb-4 font-medium">MTN Provides:</p>
+            <p className="text-gray-300 mb-4 font-medium">Partner Provides:</p>
             <ul className="space-y-3">
               {mtnProvides.map((item, index) => (
                 <li key={index} className="flex items-start gap-3">
@@ -136,15 +138,11 @@ const PartnershipSection: React.FC = () => {
           <div className="inline-flex flex-col items-center gap-4 p-8 bg-gradient-to-r from-gray-800/30 to-gray-900/30 rounded-2xl border border-gray-700/50">
             <p className="text-white text-lg font-medium max-w-2xl">
               &ldquo;Together, we can power millions of digital journeys —
-              making MTN not just a telecom provider, but the go-to platform for
+              making us not just a telecom provider, but the go-to platform for
               digital life in Ghana.&rdquo;
             </p>
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 bg-[#FFCC00] rounded-lg flex items-center justify-center">
-                <span className="text-[#0A0A0A] font-bold text-xs">MTN</span>
-              </div>
-              <span className="text-gray-500">×</span>
-                <Image
+              <Image
                 src="/izone3.png"
                 alt="iZone Logo"
                 width={64}

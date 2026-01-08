@@ -4,7 +4,7 @@ import ContactInfo from "../../components/contact/ContactInfo";
 import QuickLinks from "../../components/contact/QuickLinks";
 
 export const metadata = {
-  title: "Contact Us | Jolli by iZone - Powered by MTN Ghana",
+  title: "Contact Us | Jolli by iZone - Powered by iZone",
   description:
     "Get in touch with iZone Limited for bundle inquiries, partnership opportunities, or customer support. We're here to help you on your digital journey.",
 };

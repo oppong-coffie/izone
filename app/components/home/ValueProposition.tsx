@@ -27,9 +27,9 @@ const propositions = [
   },
   {
     icon: Handshake,
-    title: "MTN Brand Synergy",
+    title: "Strategic Brand Synergy",
     description:
-      "All bundles are co-branded with MTN to reinforce leadership in the digital ecosystem and grow customer stickiness.",
+      "All bundles are co-branded with our partner to reinforce leadership in the digital ecosystem and grow customer stickiness.",
     color: "from-[#32CD32] to-[#28a428]",
   },
 ];

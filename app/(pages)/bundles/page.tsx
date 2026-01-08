@@ -43,8 +43,8 @@ export default function BundlesPage() {
             All <span className="text-[#32CD32]">Bundles</span>
           </h1>
           <p className="text-gray-400 max-w-2xl">
-            Digital solutions + MTN Data in one seamless package. Choose the
-            bundle that fits your needs.
+            Digital solutions + High-Speed Data in one seamless package. Choose
+            the bundle that fits your needs.
           </p>
         </div>
       </section>
