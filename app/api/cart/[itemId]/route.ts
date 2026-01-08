@@ -3,10 +3,10 @@ import { removeFromCart } from "@/lib/db";
 
 export async function DELETE(
   req: Request,
-  { params }: { params: { itemId: string } }
+  { params }: { params: Promise<{ itemId: string }> }
 ) {
   try {
-    const { itemId } = params;
+    const { itemId } = await params;
 
     removeFromCart(itemId);
 
